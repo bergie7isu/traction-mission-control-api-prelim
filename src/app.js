@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
+const todosRouter = require('./todos/todos-router');
+const issuesRouter = require('./issues/issues-router');
 
 const app = express();
 
@@ -14,6 +16,9 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
+
+app.use('/api/todos', todosRouter);
+app.use('/api/issues', issuesRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, world!');
