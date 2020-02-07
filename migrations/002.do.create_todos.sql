@@ -6,6 +6,6 @@ CREATE TABLE todos (
     due TEXT NOT NULL,
     status TEXT,
     reviewed TEXT,
-    issue INTEGER 
+    issue INTEGER
         REFERENCES issues(id) ON DELETE SET NULL
 );
