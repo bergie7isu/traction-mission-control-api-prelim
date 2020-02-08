@@ -13,7 +13,7 @@ const serializeTodo = todo => ({
     created: todo.created,
     due: xss(todo.due),
     status: todo.status,
-    status_date: todo.status,
+    status_date: todo.status_date,
     reviewed: todo.reviewed,
     issue: xss(todo.issue)
 });
