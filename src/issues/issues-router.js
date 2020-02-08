@@ -96,7 +96,7 @@ issuesRouter
         }
         issueToUpdate.created = created;
         issueToUpdate.status = status;
-        issueTodUpdate.status_date = status_date;
+        issueToUpdate.status_date = status_date;
         issueToUpdate.reviewed = reviewed;
         IssuesService.updateIssue(
             req.app.get('db'),
