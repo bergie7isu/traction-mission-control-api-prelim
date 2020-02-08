@@ -13,6 +13,7 @@ const serializeTodo = todo => ({
     created: todo.created,
     due: xss(todo.due),
     status: todo.status,
+    status_date: todo.status,
     reviewed: todo.reviewed,
     issue: xss(todo.issue)
 });
@@ -29,7 +30,7 @@ todosRouter
         .catch(next)
     })
     .post(jsonParser, (req, res, next) => {
-        const { todo, who, created, due, status, reviewed, issue } = req.body
+        const { todo, who, created, due, status, status_date, reviewed, issue } = req.body
         const newTodo = { todo, who, created, due, reviewed };
         for (const [key, value] of Object.entries(newTodo)) {
             if (value == null) {
@@ -39,6 +40,7 @@ todosRouter
             }
         }
         newTodo.status = status;
+        newTodo.status_date = status_date;
         newTodo.issue = issue;
         TodosService.insertTodo(
             req.app.get('db'),
@@ -85,7 +87,7 @@ todosRouter
         .catch(next)
     })
     .patch(jsonParser, (req, res, next) => {
-        const { todo, who, created, due, status, reviewed, issue } = req.body
+        const { todo, who, created, due, status, status_date, reviewed, issue } = req.body
         const todoToUpdate = { todo, who, due, issue };
         const numberOfValues = Object.values(todoToUpdate).filter(Boolean).length
         if (numberOfValues === 0) {
@@ -97,6 +99,7 @@ todosRouter
         }
         todoToUpdate.created = created;
         todoToUpdate.status = status;
+        todoToUpdate.status_date = status_date;
         todoToUpdate.reviewed = reviewed;
         TodosService.updateTodo(
             req.app.get('db'),

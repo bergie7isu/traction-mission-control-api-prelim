@@ -12,6 +12,7 @@ const serializeIssue = issue => ({
     who: xss(issue.who),
     created: issue.created,
     status: issue.status,
+    status_date: issue.status_date,
     reviewed: issue.reviewed
 });
 
@@ -27,7 +28,7 @@ issuesRouter
         .catch(next)
     })
     .post(jsonParser, (req, res, next) => {
-        const { issue, who, created, status, reviewed } = req.body
+        const { issue, who, created, status, status_date, reviewed } = req.body
         const newIssue = { issue, who, created, reviewed };
         for (const [key, value] of Object.entries(newIssue)) {
             if (value == null) {
@@ -37,6 +38,7 @@ issuesRouter
             }
         }
         newIssue.status = status;
+        newIssue.status_date = status_date;
         IssuesService.insertIssue(
             req.app.get('db'),
             newIssue
@@ -82,7 +84,7 @@ issuesRouter
         .catch(next)
     })
     .patch(jsonParser, (req, res, next) => {
-        const { issue, who, created, status, reviewed } = req.body
+        const { issue, who, created, status, status_date, reviewed } = req.body
         const issueToUpdate = { issue, who }
         const numberOfValues = Object.values(issueToUpdate).filter(Boolean).length
         if (numberOfValues === 0) {
@@ -94,6 +96,7 @@ issuesRouter
         }
         issueToUpdate.created = created;
         issueToUpdate.status = status;
+        issueTodUpdate.status_date = status_date;
         issueToUpdate.reviewed = reviewed;
         IssuesService.updateIssue(
             req.app.get('db'),

@@ -4,5 +4,6 @@ CREATE TABLE issues (
     who TEXT NOT NULL,
     created TEXT NOT NULL,
     status TEXT,
+    status_date TEXT,
     reviewed TEXT
 );
