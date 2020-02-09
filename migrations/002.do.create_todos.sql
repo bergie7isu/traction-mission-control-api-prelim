@@ -7,6 +7,6 @@ CREATE TABLE todos (
     status TEXT,
     status_date TEXT,
     reviewed TEXT,
-    issue INTEGER
+    issue INTEGER DEFAULT NULL
         REFERENCES issues(id) ON DELETE SET NULL
 );
