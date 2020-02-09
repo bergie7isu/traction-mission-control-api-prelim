@@ -7,14 +7,15 @@ const todosRouter = express.Router()
 const jsonParser = express.json()
 
 const serializeTodo = todo => ({
+    id: todo.id,
     todo: xss(todo.todo),
-    who: xss(todo.who),
+    who: todo.who,
     created: todo.created,
-    due: xss(todo.due),
+    due: todo.due,
     status: todo.status,
     status_date: todo.status_date,
     reviewed: todo.reviewed,
-    issue: xss(todo.issue)
+    issue: todo.issue
 });
 
 todosRouter

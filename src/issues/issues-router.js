@@ -9,7 +9,7 @@ const jsonParser = express.json()
 const serializeIssue = issue => ({
     id: issue.id,
     issue: xss(issue.issue),
-    who: xss(issue.who),
+    who: issue.who,
     created: issue.created,
     status: issue.status,
     status_date: issue.status_date,
