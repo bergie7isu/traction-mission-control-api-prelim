@@ -12,7 +12,7 @@ VALUES
   ('Eighth issue', 'Joel Tjepkes', '2019-08-03', 'Combined', '2019-08-10', 'yes'),
   ('Ninth issue', 'Steve Thor', '2019-09-03', 'Solved', '2019-09-10', 'yes'),
   ('Tenth issue', 'Nathan Witt', '2019-10-03', 'Killed', '2019-10-10', 'yes'),
-  ('Eleventh issue', 'Mark Bergstom', '2019-11-03', null, null, 'no');
+  ('Eleventh issue', 'Mark Bergstrom', '2019-11-03', null, null, 'no');
 
 INSERT INTO todos (todo, who, created, due, status, status_date, reviewed, issue)
 VALUES
