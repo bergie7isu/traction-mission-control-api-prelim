@@ -7,8 +7,9 @@ function makeTodosArray() {
             "created": "2019-01-03",
             "due": "2019-01-10",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no",
-            "issue": '1'
+            "issue": null
         },
         {
             "id": 2,
@@ -17,8 +18,9 @@ function makeTodosArray() {
             "created": "2019-02-03",
             "due": "2019-02-10",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no",
-            "issue": '2'
+            "issue": null
         },
         {
             "id": 3,
@@ -27,8 +29,9 @@ function makeTodosArray() {
             "created": "2019-03-03",
             "due": "2019-03-10",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no",
-            "issue": '3'
+            "issue": null
         },
         {
             "id": 4,
@@ -37,8 +40,9 @@ function makeTodosArray() {
             "created": "2019-04-03",
             "due": "2019-04-10",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no",
-            "issue": '4'
+            "issue": null
         },
         {
             "id": 5,
@@ -47,8 +51,9 @@ function makeTodosArray() {
             "created": "2019-05-03",
             "due": "2019-05-10",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no",
-            "issue": '5'
+            "issue": null
         }
     ];
 };
@@ -62,7 +67,7 @@ function makeMaliciousTodo() {
         "due": "2019-01-10",
         "status": null,
         "reviewed": "no",
-        "issue": '1'
+        "issue": null
     };
     const expectedTodo = {
         ...maliciousTodo,

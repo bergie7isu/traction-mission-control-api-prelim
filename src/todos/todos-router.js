@@ -9,7 +9,7 @@ const jsonParser = express.json()
 const serializeTodo = todo => ({
     id: todo.id,
     todo: xss(todo.todo),
-    who: todo.who,
+    who: xss(todo.who),
     created: todo.created,
     due: todo.due,
     status: todo.status,
@@ -93,7 +93,7 @@ todosRouter
         if (numberOfValues === 0) {
             return res.status(400).json({
                 error: {
-                    message: `Request body must contain either 'todo", "who", "due", or "issue'!`
+                    message: `Request body must contain either "todo", "who", "due", or "issue'!`
                 }
             })
         }

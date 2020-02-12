@@ -6,6 +6,7 @@ function makeIssuesArray() {
             "who": "Mark Bergstrom",
             "created": "2019-01-03",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no"
         },
         {
@@ -14,6 +15,7 @@ function makeIssuesArray() {
             "who": "Paul Johnson",
             "created": "2019-01-03",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no"
         },
         {
@@ -22,6 +24,7 @@ function makeIssuesArray() {
             "who": "Joel Tjepkes",
             "created": "2019-01-03",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no"
         },
         {
@@ -30,6 +33,7 @@ function makeIssuesArray() {
             "who": "Steve Thor",
             "created": "2019-01-03",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no"
         },
         {
@@ -38,30 +42,30 @@ function makeIssuesArray() {
             "who": "Nathan Witt",
             "created": "2019-01-03",
             "status": null,
+            "status_date": "2020-02-12",
             "reviewed": "no"
         },
     ];
 };
 
 function makeMaliciousIssue() {
-    const maliciousTodo = {
-        "id": "911",
-        "todo": 'Naughty naughty very naughty <script>alert("xss");</script>',
-        "who": "Mark Bergstrom",
+    const maliciousIssue = {
+        "id": 1,
+        "issue": 'Naughty naughty very naughty <script>alert("xss");</script>',
+        "who": `Bad image <img src="https://url.to.file.which/does-not.exist" onerror="alert(document.cookie);">. But not <strong>all</strong> bad.`,
         "created": "2019-01-03",
-        "due": "2019-01-10",
         "status": null,
-        "reviewed": "no",
-        "issue": `Bad image <img src="https://url.to.file.which/does-not.exist" onerror="alert(document.cookie);">. But not <strong>all</strong> bad.`
+        "status_date": "2020-02-12",
+        "reviewed": "no"
     };
-    const expectedTodo = {
-        ...maliciousTodo,
-        "todo": 'Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;',
-        "issue": `Bad image <img src="https://url.to.file.which/does-not.exist">. But not <strong>all</strong> bad.`
+    const expectedIssue = {
+        ...maliciousIssue,
+        "issue": 'Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;',
+        "who": `Bad image <img src="https://url.to.file.which/does-not.exist">. But not <strong>all</strong> bad.`
     };
     return {
-        maliciousTodo,
-        expectedTodo
+        maliciousIssue,
+        expectedIssue
     };
 };
 

@@ -50,7 +50,7 @@ describe('Todos Endpoints', function() {
                     .expect(200)
                     .expect(res => {
                         expect(res.body[0].todo).to.eql(expectedTodo.todo)
-                        expect(res.body[0].issue).to.eql(expectedTodo.issue)
+                        expect(res.body[0].who).to.eql(expectedTodo.who)
                     })
             });
         });
@@ -92,7 +92,7 @@ describe('Todos Endpoints', function() {
                     .expect(200)
                     .expect(res => {
                         expect(res.body.todo).to.eql(expectedTodo.todo)
-                        expect(res.body.issue).to.eql(expectedTodo.issue)
+                        expect(res.body.who).to.eql(expectedTodo.who)
                     })
             });
         });
@@ -107,7 +107,7 @@ describe('Todos Endpoints', function() {
                 due: '2020-02-14',
                 status: null,
                 reviewed: 'no',
-                issue: '1'
+                issue: null
             };
             return supertest(app)
                 .post('/api/todos')
@@ -155,7 +155,7 @@ describe('Todos Endpoints', function() {
                 .expect(201)
                 .expect(res => {
                     expect(res.body.todo).to.eql(expectedTodo.todo)
-                    expect(res.body.issue).to.eql(expectedTodo.issue)
+                    expect(res.body.who).to.eql(expectedTodo.who)
                 })
         });
     });
@@ -215,7 +215,7 @@ describe('Todos Endpoints', function() {
                     due: '2020-02-14',
                     status: null,
                     reviewed: 'no',
-                    issue: '1'
+                    issue: null
                 };
                 const expectedTodo = {
                     ...testTodos[idToUpdate - 1],
@@ -236,7 +236,7 @@ describe('Todos Endpoints', function() {
                 return supertest(app)
                     .patch(`/api/todos/${idToUpdate}`)
                     .expect(400, {
-                        error: { message: `Request body must contain either 'todo", "who", "due", or "issue'!` }
+                        error: { message: `Request body must contain either "todo", "who", "due", or "issue'!` }
                     })
             });
             it('responds with 204 when updating only a subset of fields', () => {

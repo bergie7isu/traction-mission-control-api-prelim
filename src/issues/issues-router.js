@@ -9,7 +9,7 @@ const jsonParser = express.json()
 const serializeIssue = issue => ({
     id: issue.id,
     issue: xss(issue.issue),
-    who: issue.who,
+    who: xss(issue.who),
     created: issue.created,
     status: issue.status,
     status_date: issue.status_date,
@@ -90,7 +90,7 @@ issuesRouter
         if (numberOfValues === 0) {
             return res.status(400).json({
                 error: {
-                    message: `Request body must contain either 'issue" or "who"!`
+                    message: `Request body must contain either "issue" or "who"!`
                 }
             })
         }
