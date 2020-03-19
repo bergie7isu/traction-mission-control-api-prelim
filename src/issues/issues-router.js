@@ -23,7 +23,7 @@ issuesRouter
             req.app.get('db')
         )
         .then(issues => {
-                res.json(issues.map(serializeIssue))
+            res.json(issues.map(serializeIssue))
         })
         .catch(next)
     })

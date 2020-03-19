@@ -25,7 +25,7 @@ todosRouter
             req.app.get('db')
         )
         .then(todos => {
-                res.json(todos.map(serializeTodo))
+            res.json(todos.map(serializeTodo))
         })
         .catch(next)
     })
